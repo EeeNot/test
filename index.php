@@ -22,24 +22,27 @@ ________________________________________________________________________________
 <body>
 <div class="container">
 
-    <h1 class="text-center">
-        <div class="badge badge-primary text-wrap" style="width: 22rem; background: #5A6268">
-            ADD NEWS
-        </div>
-    </h1>
+    <nav class="nav nav-pills flex-column flex-sm-row newitem nav-justified">
+        <a class=" flex-sm-fill text-sm-center nav-link active" href="index.php">ADD NEWS</a>
+        <a class=" flex-sm-fill text-sm-center nav-link" href="/front/index.php">NEWS</a>
+    </nav>
 
-<p class="text-center">Inter news parameters :</p>
-
-    <form class="text-center">
+    <form >
         <div class="row">
                       <!--///////////////////////////////////////////////////////////////////-->
             <div class="col-md-4">
 
             </div>
 
-            <div class="col-md-4">
+            <div class="col-md-4 border border-secondar rounded">
 
-                <div class="form-group">
+                <div class="badge badge-primary text-wrap topic">
+                    ADD NEWS
+                </div>
+
+                <p class="text-center">Inter news parameters :</p>
+
+                <div class="form-group">    <!-- как сделать обязательные для заполнения-->
                     <label for="news title" class="newitem">Title :</label>
                     <input type="text" class="form-control" id="inputtitle" placeholder="News Title ...">
 
@@ -58,7 +61,7 @@ ________________________________________________________________________________
                     <label class="custom-file-label" for="customFile">Image ...</label>
                 </div>
 
-                <button type="button" class="btn btn-secondary btn-lg btn-block newitem">UPLOAD</button>
+                <button type="button" class="btn btn-secondary btn-lg btn-block newitem" >UPLOAD</button>
 
             </div>
             <!--///////////////////////////////////////////////////////////////////-->
