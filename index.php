@@ -13,7 +13,7 @@ ________________________________________________________________________________
 //подключаем bootstrap    -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
-<!--//подключаем стили    -->
+<!--//подключаем стили-->
     <link rel="stylesheet" href="/css/main.css">
 <!--________________________________________________________________________________________________________________-->
 
@@ -40,7 +40,7 @@ ________________________________________________________________________________
                     ADD NEWS
                 </div>
 
-                <p class="text-center">Inter news parameters :</p>
+                <p class="newitem">Inter news parameters :</p>
 
                 <div class="form-group">    <!-- как сделать обязательные для заполнения-->
                     <label for="news title" class="newitem">Title :</label>
