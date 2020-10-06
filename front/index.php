@@ -14,7 +14,7 @@ ________________________________________________________________________________
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
     <!--//подключаем стили    -->
-    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="../css/main.css">
     <!--________________________________________________________________________________________________________________-->
 
 </head>
@@ -30,15 +30,16 @@ ________________________________________________________________________________
     <form >
         <div class="row border border-secondar rounded">
             <!--///////////////////////////////////////////////////////////////////-->
+            <div class="badge badge-primary text-wrap topic">
+                NEWS
+            </div>
             <div class="col-md-4">
 
             </div>
 
             <div class="col-md-4 ">
 
-                <div class="badge badge-primary text-wrap topic">
-                    ADD NEWS
-                </div>
+
 
 
 

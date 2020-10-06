@@ -1,0 +1,52 @@
+body{
+    background: azure;
+}
+.col-md-4{
+    padding-left: 0rem;
+    padding-left: 0rem;
+    margin-top: 1rem;
+}
+
+.border {
+    /*background: white;*/
+    margin-top: 1rem;
+    padding-right: 1rem;
+    background: white;
+}
+
+.topic{
+    font-size: 2rem;
+    height:3rem;
+    width: 100%;
+
+    background: #5A6268;
+    margin-top: 1rem;
+
+    margin-right: 1rem;
+    margin-left: 1rem;
+}
+
+.newitem{
+    margin-top: 1rem;
+    text-align: center;
+    margin-right: 1rem;
+    margin-left: 1rem;
+}
+p{
+    margin-top: 1rem;
+}
+
+.form-control {
+    margin-left: 1rem;
+}
+
+.custom-file {
+    margin: 0rem;
+    margin-left: 1rem;
+
+}
+
+.btn{
+    margin-bottom: 1rem ;
+   /*border-bottom-width: 100%;*/
+}
