@@ -44,16 +44,16 @@ ________________________________________________________________________________
 
                 <div class="form-group">    <!-- как сделать обязательные для заполнения-->
                     <label for="news title" class="newitem">Title :</label>
-                    <input type="text" class="form-control" id="inputtitle" placeholder="News Title ...">
+                    <input type="text" class="form-control" id="inputtitle" placeholder="News Title ..." autofocus required>
 
                     <label for="data" class="newitem">Data :</label>
-                    <input type="text" class="form-control" id="inputdate" placeholder="dd/mm/yy ">
+                    <input type="text" class="form-control" id="inputdate" placeholder="dd/mm/yy " required>
 
                     <label for="preview" class="newitem">Preview :</label>
-                    <input type="text" class="form-control" id="inputpreview" placeholder="News preview ... ">
+                    <input type="text" class="form-control" id="inputpreview" placeholder="News preview ... " required>
 
                     <label for="textnews" class="newitem">Enter news text</label>
-                    <textarea class="form-control" id="newstext" rows="3"></textarea>
+                    <textarea class="form-control" id="newstext" rows="3" required></textarea>
                 </div>
 
                 <div class="custom-file">

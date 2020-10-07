@@ -2,11 +2,6 @@ body{
     background: azure;
 }
 
-/*
-
-
-*/
-
 .col-md-4{
     padding: 15px;
 }
@@ -14,7 +9,6 @@ body{
 .border {
     background: white;
     margin-top: 1rem;
-
 }
 
 .topic{
@@ -27,9 +21,12 @@ body{
 .newitem{
     margin-top: 1rem;
     text-align: center;
-
 }
 
 .btn{
-    margin-bottom: 1 rem;
+    margin-bottom: 1rem;
+}
+
+.news-text {
+    text-align: justify;
 }

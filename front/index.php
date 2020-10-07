@@ -27,11 +27,42 @@ ________________________________________________________________________________
         <a class=" flex-sm-fill text-sm-center nav-link active" href="index.php">NEWS</a>
     </nav>
 
-    <form >
-        <div class="row border border-secondar rounded">
+    <form>
+        <div class="row border border-secondar rounded field">
             <!--///////////////////////////////////////////////////////////////////-->
             <div class="badge badge-primary text-wrap topic">
-                NEWS
+                EDIT NEWS
+            </div>
+
+            <div class="list-group">
+                <a href="#" class="list-group-item list-group-item-action">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">Title</h5>
+                        <small>Data (dd/mm/yy)</small>
+                    </div>
+                    <p class="mb-1 news-text" text-overflow="20">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic obcaecati perspiciatis quis. Ab, adipisci alias culpa dolor dolorum eligendi, esse ipsam iusto laborum magnam natus nobis non saepe sit ut veniam vitae? Exercitationem harum necessitatibus perferendis placeat quidem recusandae, veritatis! Deserunt dolor dolore enim error fuga perferendis recusandae. Culpa dolore fugiat inventore labore maxime molestias nostrum quam quibusdam? Ab atque cumque dolore ducimus eveniet ipsum nesciunt nisi obcaecati tempore voluptatum.</p>
+
+                    <div class="row">
+                        <div class="col-md-4">
+
+                        </div>
+                        <div class="col-md-4">
+                            <div class="btn-group" role="group" aria-label="Basic example">
+                                <button type="button" class="btn btn-secondary">add</button>
+                                <button type="button" class="btn btn-secondary">edit</button>
+                                <button type="button" class="btn btn-secondary">delite</button>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+
+                        </div>
+
+                    </div>
+
+
+
+                </a>
+
             </div>
             <div class="col-md-4">
 
