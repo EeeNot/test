@@ -21,13 +21,18 @@ ________________________________________________________________________________
 
 <body>
 <div class="container">
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <nav class="nav nav-pills flex-column flex-sm-row newitem nav-justified">
+                <a class=" flex-sm-fill text-sm-center nav-link active" href="/front/index.php">BACK</a>
+            </nav>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
 
-    <nav class="nav nav-pills flex-column flex-sm-row newitem nav-justified">
-        <a class=" flex-sm-fill text-sm-center nav-link active" href="index.php">ADD NEWS</a>
-        <a class=" flex-sm-fill text-sm-center nav-link" href="/front/index.php">NEWS</a>
-    </nav>
 
-    <form >
+    <form method="post" action="/save.php">
         <div class="row">
                       <!--///////////////////////////////////////////////////////////////////-->
             <div class="col-md-4">
@@ -44,24 +49,24 @@ ________________________________________________________________________________
 
                 <div class="form-group">    <!-- как сделать обязательные для заполнения-->
                     <label for="news title" class="newitem">Title :</label>
-                    <input type="text" class="form-control" id="inputtitle" placeholder="News Title ..." autofocus required>
+                    <input type="text" class="form-control" id="inputtitle" name="title" placeholder="News Title ..." autofocus required>
 
                     <label for="data" class="newitem">Data :</label>
-                    <input type="text" class="form-control" id="inputdate" placeholder="dd/mm/yy " required>
+                    <input type="text" class="form-control" id="inputdate" name="date" placeholder="dd/mm/yy " required>
 
                     <label for="preview" class="newitem">Preview :</label>
-                    <input type="text" class="form-control" id="inputpreview" placeholder="News preview ... " required>
+                    <input type="text" class="form-control" id="inputpreview" name="preview" placeholder="News preview ... " required>
 
                     <label for="textnews" class="newitem">Enter news text</label>
-                    <textarea class="form-control" id="newstext" rows="3" required></textarea>
+                    <textarea class="form-control" id="newstext" rows="3" name="text" required></textarea>
                 </div>
 
                 <div class="custom-file">
-                    <input type="file" class="custom-file-input" id="customFile">
+                    <input type="file" class="custom-file-input" id="customFile" name="image">
                     <label class="custom-file-label" for="customFile">Image ...</label>
                 </div>
 
-                <button type="button" class="btn btn-secondary btn-lg btn-block newitem" >UPLOAD</button>
+                <button type="submit" class="btn btn-secondary btn-lg btn-block newitem" >UPLOAD</button>
 
             </div>
             <!--///////////////////////////////////////////////////////////////////-->

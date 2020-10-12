@@ -1,3 +1,25 @@
+<?php
+//подключение  к базе
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "newstest";
+
+$conn = new mysqli($servername, $username, $password, $dbname) ;
+
+$sql = "SELECT * FROM news";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+        foreach ($result->fetch_assoc() as $key => $item) {
+            $data[] = $item;
+        }
+    }
+
+?>
+
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -11,7 +33,8 @@
 ________________________________________________________________________________________________________________________
 
 //подключаем bootstrap    -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
     <!--//подключаем стили    -->
     <link rel="stylesheet" href="../css/main.css">
@@ -23,62 +46,154 @@ ________________________________________________________________________________
 <div class="container">
 
     <nav class="nav nav-pills flex-column flex-sm-row newitem nav-justified">
-        <a class=" flex-sm-fill text-sm-center nav-link" href="../index.php">ADD NEWS</a>
-        <a class=" flex-sm-fill text-sm-center nav-link active" href="index.php">NEWS</a>
+
+
+        <a class=" flex-sm-fill text-sm-center nav-link active" href="main.php">MAIN NEWS</a>
+
     </nav>
 
     <form>
-        <div class="row border border-secondar rounded field">
+        <div class="col border border-secondar rounded field">
             <!--///////////////////////////////////////////////////////////////////-->
-            <div class="badge badge-primary text-wrap topic">
-                EDIT NEWS
+            <div class="edit-news badge badge-primary text-wrap topic">
+                NEWS ADMIN
             </div>
 
-            <div class="list-group">
-                <a href="#" class="list-group-item list-group-item-action">
-                    <div class="d-flex w-100 justify-content-between">
-                        <h5 class="mb-1">Title</h5>
-                        <small>Data (dd/mm/yy)</small>
-                    </div>
-                    <p class="mb-1 news-text" text-overflow="20">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic obcaecati perspiciatis quis. Ab, adipisci alias culpa dolor dolorum eligendi, esse ipsam iusto laborum magnam natus nobis non saepe sit ut veniam vitae? Exercitationem harum necessitatibus perferendis placeat quidem recusandae, veritatis! Deserunt dolor dolore enim error fuga perferendis recusandae. Culpa dolore fugiat inventore labore maxime molestias nostrum quam quibusdam? Ab atque cumque dolore ducimus eveniet ipsum nesciunt nisi obcaecati tempore voluptatum.</p>
+            <!--///////////////////////////////////////////////////////////////////-->
+                <table class="table table-bordered">
+                    <tbody>
+                        <tr>
+                            <th type="submite" id="butadd"  scope="row">
+                                <!--добавляем новость-->
+                            </th>
 
-                    <div class="row">
-                        <div class="col-md-4">
+                            <th scope="row">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h5 class="mb-1"><?php
+                                        foreach ($result as $item) {
+                                            $data[] = $item;
+                                            echo $item['title'];
+                                        }
+                                        ?>
+                                    </h5>
+                                    <small><?php
+                                        foreach ($result as $item) {
+                                            $data[] = $item;
+                                            echo $item['date'];
+                                        }
 
-                        </div>
-                        <div class="col-md-4">
-                            <div class="btn-group" role="group" aria-label="Basic example">
-                                <button type="button" class="btn btn-secondary">add</button>
-                                <button type="button" class="btn btn-secondary">edit</button>
-                                <button type="button" class="btn btn-secondary">delite</button>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
+                                        ?>
+                                    </small>
+                                </div>
+                                <p class="mb-1 news-preview" text-overflow="5"><?php
+                                    foreach ($result as $item) {
+                                        $data[] = $item;
+                                        echo $item['preview'];
+                                    }
+                                    ?>
+                                </p>
 
-                        </div>
+                                <div class="row">
 
-                    </div>
+                                        <div class="btn-group" role="group" aria-label="Basic example">
+                                            <button type="button" class="btn btn-secondary" id="butedit">edit</button>
+                                            <button type="button" class="btn btn-secondary" id="butdel">delite</button>
+                                        </div>
 
 
+                                </div>
+                            </th>
+                            <th scope="row">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h5 class="mb-1"><?php
+                                        foreach ($result as $item) {
+                                            $data[] = $item;
+                                            echo $item['title'];
+                                        }
+                                        ?>
+                                    </h5>
+                                    <small><?php
+                                        foreach ($result as $item) {
+                                            $data[] = $item;
+                                            echo $item['date'];
+                                        }
+
+                                        ?>
+                                    </small>
+                                </div>
+                                <p class="mb-1 news-preview" text-overflow="5"><?php
+                                    foreach ($result as $item) {
+                                        $data[] = $item;
+                                        echo $item['preview'];
+                                    }
+                                    ?>
+                                </p>
+
+                                <div class="row">
+
+                                    <div class="btn-group" role="group" aria-label="Basic example">
+                                        <button type="button" class="btn btn-secondary" id="butedit">edit</button>
+                                        <button type="button" class="btn btn-secondary" id="butdel">delite</button>
+                                    </div>
+
+
+                                </div>
+                            </th>
+                            <th scope="row"><div class="d-flex w-100 justify-content-between">
+                                    <h5 class="mb-1"><?php
+                                        foreach ($result as $item) {
+                                            $data[] = $item;
+                                            echo $item['title'];
+                                        }
+                                        ?>
+                                    </h5>
+                                    <small><?php
+                                        foreach ($result as $item) {
+                                            $data[] = $item;
+                                            echo $item['date'];
+                                        }
+
+                                        ?>
+                                    </small>
+                                </div>
+                                <p class="mb-1 news-preview" text-overflow="5"><?php
+                                    foreach ($result as $item) {
+                                        $data[] = $item;
+                                        echo $item['preview'];
+                                    }
+                                    ?>
+                                </p>
+
+                                <div class="row">
+
+                                    <div class="btn-group" role="group" aria-label="Basic example">
+                                        <button type="button" class="btn btn-secondary" id="butedit">edit</button>
+                                        <button type="button" class="btn btn-secondary" id="butdel">delite</button>
+                                    </div>
+
+
+                                </div></th>
+
+                        </tr>
+
+                    </tbody>
+                </table>
+
+
+
+                <a class="list-group-item">
+
+                    <?php
+
+
+                    $conn -> close();
+
+                    ?>
 
                 </a>
 
-            </div>
-            <div class="col-md-4">
-
-            </div>
-
-            <div class="col-md-4 ">
 
 
-
-
-
-            </div>
-            <!--///////////////////////////////////////////////////////////////////-->
-            <div class="col-md-4">
-
-            </div>
         </div>
 
 

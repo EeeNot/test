@@ -6,6 +6,11 @@ body{
     padding: 15px;
 }
 
+.box {
+    weight: 4rem ;
+    height: 3rem;
+}
+
 .border {
     background: white;
     margin-top: 1rem;
@@ -14,13 +19,18 @@ body{
 .topic{
     font-size: 2rem;
     height:3rem;
-    width: 100%;
+  /*  width: ; */
     background: #5A6268;
+
 }
 
 .newitem{
     margin-top: 1rem;
     text-align: center;
+}
+
+.edit-news {
+    margin: 1rem;
 }
 
 .btn{
