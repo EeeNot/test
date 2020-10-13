@@ -1,3 +1,8 @@
+<!---->
+<?php
+
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -20,8 +25,9 @@ ________________________________________________________________________________
 </head>
 
 <body>
+
 <div class="container">
-    <form method="post" action=" ">   <!--!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
+    <form method="post" action="../login.php">   <!--!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
         <div class="row">
 
             <div class="col-md-4">
@@ -36,11 +42,11 @@ ________________________________________________________________________________
                 <form>
                     <div class="form-group">
                         <label for="exampleInputEmail1">Login:</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <input type="text" class="form-control" id="exampleInputEmail1" name="login" aria-describedby="emailHelp">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Password:</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1">
+                        <input type="password" class="form-control" id="exampleInputPassword1" name="pass">
                     </div>
                     <button type="submit" class="btn btn-primary">Sign in</button>
                 </form>
@@ -69,3 +75,4 @@ ________________________________________________________________________________
 
 </body>
 </html>
+<?php //} ?>

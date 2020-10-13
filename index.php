@@ -47,12 +47,9 @@ ________________________________________________________________________________
 
 <body>
 <div class="container">
-
+<!--    -->
     <nav class="nav nav-pills flex-column flex-sm-row newitem nav-justified">
-
-
-        <a class=" flex-sm-fill text-sm-center nav-link active" href="admin/admin.php">admin</a>
-
+        <a class=" text-sm-center nav-link btn-primary" href="admin/singin.php">Sign In</a>
     </nav>
 
     <form>
@@ -85,13 +82,30 @@ ________________________________________________________________________________
                         <td class="align-center">
 
                             <div class="btn-group" role="group" aria-label="Basic example">
-                                <a href="/front/newspage.php?id=<?php echo $item['id'] ?>" class="btn btn-primary" id="butedit">view</a>
+                                <a href="/front/newspage.php?id=<?php echo $item['id'] ?>" class="btn btn-primary">view</a>
                             </div>
                         </td>
                     </tr>
                 <?php endforeach; ?>
                 </tbody>
             </table>
+            <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                    <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
         </div>
 
 

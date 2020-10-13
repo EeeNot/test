@@ -52,7 +52,7 @@ ________________________________________________________________________________
                     <input type="text" class="form-control" id="inputtitle" name="title" placeholder="News Title ..." autofocus required>
 
                     <label for="data" class="newitem">Data :</label>
-                    <input type="datetime-local" class="form-control" id="inputdate" name="date" placeholder="dd/mm/yy " required>
+                    <input type="datetime-local" class="form-control" id="inputdate" name="date" required>
 
 
                     <label for="preview" class="newitem">Preview :</label>
