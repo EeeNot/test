@@ -1,9 +1,4 @@
 <?php
-/*  для неавторизованных пользователей с кнопкой авторизации
-    админа --> после авторизации попадает в front/index.php*/
-
-//подключение  к базе
-
 $id = $_GET['id'];
 
 $servername = "localhost";
@@ -40,8 +35,6 @@ $news = $result->fetch_assoc();
 $conn->close();
 
 ?>
-
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -55,70 +48,62 @@ $conn->close();
 ________________________________________________________________________________________________________________________
 
 //подключаем bootstrap    -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
-    <!--//подключаем стили    -->
-    <link rel="stylesheet" href="../css/main.css">
+    <!--//подключаем стили-->
+    <link rel="stylesheet" href="/css/main.css">
     <!--________________________________________________________________________________________________________________-->
 
 </head>
 
 <body>
 <div class="container">
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <nav class="nav nav-pills flex-column flex-sm-row newitem nav-justified">
+                <a class=" flex-sm-fill text-sm-center nav-link active" href="admin.php">BACK</a>
+            </nav>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
 
-    <nav class="nav nav-pills flex-column flex-sm-row newitem nav-justified">
 
-        <a class=" flex-sm-fill text-sm-center nav-link active" href="main.php">BACK</a>
-
-    </nav>
-
-    <form>
-
-        <div class="col border border-secondar rounded field">
+    <form method="post" action="edit.php?id=<?php echo $news['id'] ?>">
+        <div class="row">
             <!--///////////////////////////////////////////////////////////////////-->
-            <div class="edit-news badge badge-primary text-wrap topic">
-                NEWS # <?php echo $news['id'] ?>
-            </div>
-
-            <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1"><?php
-                    foreach ($result as $item) {
-                        $data[] = $item;
-                        echo $item['title'];
-                    }
-                    ?>
-                </h5>
-                <small><?php
-                    foreach ($result as $item) {
-                        $data[] = $item;
-                        echo $item['date'];
-                    }
-
-                    ?>
-                </small>
-            </div>
-            <p class="mb-1 news-text"><?php
-                foreach ($result as $item) {
-                    $data[] = $item;
-                    echo $item['text'];
-                }
-                ?>
-            </p>
-
-
-
-            <div class="list-group">
-
-
-
-            </div>
             <div class="col-md-4">
 
             </div>
 
-            <div class="col-md-4 ">
+            <div class="col-md-4 border border-secondar rounded">
 
+                <div class="badge badge-primary text-wrap topic">
+                    EDIT NEWS # <?php echo $news['id'] ?>
+                </div>
+
+                <p class="newitem">Edit news parameters :</p>
+
+                <div class="form-group">    <!-- как сделать обязательные для заполнения-->
+                    <label for="news title" class="newitem">Title :</label>
+                    <input type="text" class="form-control" id="inputtitle" value="<?php echo $news['title'] ?>" name="title" placeholder="News Title ..." autofocus required>
+
+                    <label for="data" class="newitem">Data :</label>
+                    <input type="datetime-local" class="form-control" id="inputdate" value="<?php echo $news['date'] ?>" name="date" placeholder="dd/mm/yy " required>
+
+                    <label for="preview" class="newitem">Preview :</label>
+                    <input type="text" class="form-control" id="inputpreview" value="<?php echo $news['preview'] ?>" name="preview" placeholder="News preview ... " required>
+
+                    <label for="textnews" class="newitem">Enter news text</label>
+                    <textarea class="form-control" id="newstext" rows="3" name="text" required><?php echo $news['text'] ?></textarea>
+                </div>
+
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="image" name="image">
+                    <label class="custom-file-label" for="customFile">Image ...</label>
+                </div>
+
+                <button type="submit" class="btn btn-secondary btn-lg btn-block newitem" >UPDATE</button>
 
             </div>
             <!--///////////////////////////////////////////////////////////////////-->
@@ -132,9 +117,10 @@ ________________________________________________________________________________
 
 </div>
 
-
-
-
+<?php
+header('Location: ../admin/admin.php');
+exit();
+?>
 
 
 <!--____________________________________________________________________________________________________________________
@@ -144,7 +130,7 @@ ________________________________________________________________________________
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 
 <!--//подключаем файл со скриптом-->
-<script src="../js/main.js"></script>
+<script src="/js/main.js"></script>
 <!--_________________________________________________________________________________________________________________-->
 
 

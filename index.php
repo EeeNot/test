@@ -1,3 +1,28 @@
+<?php
+/*  для неавторизованных пользователей с кнопкой авторизации
+    админа --> после авторизации попадает в front/index.php*/
+
+//подключение  к базе
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "newstest";
+
+$conn = new mysqli($servername, $username, $password, $dbname) ;
+
+$sql = "SELECT * FROM news";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        $data[] = $row;
+    }
+}
+$conn->close();
+?>
+
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -11,68 +36,62 @@
 ________________________________________________________________________________________________________________________
 
 //подключаем bootstrap    -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
-<!--//подключаем стили-->
-    <link rel="stylesheet" href="/css/main.css">
-<!--________________________________________________________________________________________________________________-->
+    <!--//подключаем стили    -->
+    <link rel="stylesheet" href="css/main.css">
+    <!--________________________________________________________________________________________________________________-->
 
 </head>
 
 <body>
 <div class="container">
-    <div class="row">
-        <div class="col-md-4"></div>
-        <div class="col-md-4">
-            <nav class="nav nav-pills flex-column flex-sm-row newitem nav-justified">
-                <a class=" flex-sm-fill text-sm-center nav-link active" href="/front/index.php">BACK</a>
-            </nav>
-        </div>
-        <div class="col-md-4"></div>
-    </div>
+
+    <nav class="nav nav-pills flex-column flex-sm-row newitem nav-justified">
 
 
-    <form method="post" action="/save.php">
-        <div class="row">
-                      <!--///////////////////////////////////////////////////////////////////-->
-            <div class="col-md-4">
+        <a class=" flex-sm-fill text-sm-center nav-link active" href="admin/admin.php">admin</a>
 
+    </nav>
+
+    <form>
+        <div class="col border border-secondar rounded field">
+            <div class="edit-news badge badge-primary text-wrap topic">
+                NEWS
             </div>
 
-            <div class="col-md-4 border border-secondar rounded">
+            <table class="table table-striped table-bordered">
+                <tbody>
+                <tr>
+                    <th>№</th>
+                    <th>Image</th>
+                    <th>Title</th>
+                    <th>Date</th>
+                    <th>Preview</th>
+                    <th>Action</th>
+                </tr>
+                <?php foreach ($data as $key => $item) : ?>
+                    <tr>
+                        <td><?php echo $key + 1 ?></td>
+                        <td>
+                            <?php if($item['image']) :  ?>
+                                <img width="100px" height="100px" src="/<?php echo $item['image'] ?>">
+                            <?php endif; ?>
+                        </td>
+                        <td><?php echo $item['title'] ?></td>
+                        <td><?php echo $item['date'] ?></td>
+                        <td><?php echo $item['preview'] ?></td>
+                        <td class="align-center">
 
-                <div class="badge badge-primary text-wrap topic">
-                    ADD NEWS
-                </div>
-
-                <p class="newitem">Inter news parameters :</p>
-
-                <div class="form-group">    <!-- как сделать обязательные для заполнения-->
-                    <label for="news title" class="newitem">Title :</label>
-                    <input type="text" class="form-control" id="inputtitle" name="title" placeholder="News Title ..." autofocus required>
-
-                    <label for="data" class="newitem">Data :</label>
-                    <input type="text" class="form-control" id="inputdate" name="date" placeholder="dd/mm/yy " required>
-
-                    <label for="preview" class="newitem">Preview :</label>
-                    <input type="text" class="form-control" id="inputpreview" name="preview" placeholder="News preview ... " required>
-
-                    <label for="textnews" class="newitem">Enter news text</label>
-                    <textarea class="form-control" id="newstext" rows="3" name="text" required></textarea>
-                </div>
-
-                <div class="custom-file">
-                    <input type="file" class="custom-file-input" id="customFile" name="image">
-                    <label class="custom-file-label" for="customFile">Image ...</label>
-                </div>
-
-                <button type="submit" class="btn btn-secondary btn-lg btn-block newitem" >UPLOAD</button>
-
-            </div>
-            <!--///////////////////////////////////////////////////////////////////-->
-            <div class="col-md-4">
-
-            </div>
+                            <div class="btn-group" role="group" aria-label="Basic example">
+                                <a href="/front/newspage.php?id=<?php echo $item['id'] ?>" class="btn btn-primary" id="butedit">view</a>
+                            </div>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+                </tbody>
+            </table>
         </div>
 
 
@@ -92,7 +111,7 @@ ________________________________________________________________________________
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 
 <!--//подключаем файл со скриптом-->
-<script src="/js/main.js"></script>
+<script src="js/main.js"></script>
 <!--_________________________________________________________________________________________________________________-->
 
 

@@ -1,6 +1,4 @@
 <?php
-/*  для неавторизованных пользователей с кнопкой авторизации
-    админа --> после авторизации попадает в front/index.php*/
 
 //подключение  к базе
 
@@ -15,11 +13,11 @@ $sql = "SELECT * FROM news";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
-    foreach ($result->fetch_assoc() as $key => $item) {
-        $data[] = $item;
+    while ($row = $result->fetch_assoc()) {
+        $data[] = $row;
     }
 }
-
+$conn->close();
 ?>
 
 
@@ -50,60 +48,50 @@ ________________________________________________________________________________
 
     <nav class="nav nav-pills flex-column flex-sm-row newitem nav-justified">
 
-        <a class=" flex-sm-fill text-sm-center nav-link active" href="index.php">ADMINISTRATION</a>
+
+        <a class=" flex-sm-fill text-sm-center nav-link active" href="../index.php">MAIN NEWS</a>
 
     </nav>
 
     <form>
-
         <div class="col border border-secondar rounded field">
-            <!--///////////////////////////////////////////////////////////////////-->
             <div class="edit-news badge badge-primary text-wrap topic">
-                NEWS
+                NEWS ADMIN
             </div>
 
-            <div class="list-group">
+            <table class="table table-striped table-bordered">
+                <tbody>
+                <tr>
+                    <th>№</th>
+                    <th>Image</th>
+                    <th>Title</th>
+                    <th>Date</th>
+                    <th>Preview</th>
+                    <th>Action</th>
+                </tr>
+                <?php foreach ($data as $key => $item) : ?>
+                    <tr>
+                        <td><?php echo $key + 1 ?></td>
+                        <td>
+                            <?php if($item['image']) :  ?>
+                                <img width="100px" height="100px" src="/<?php echo $item['image'] ?>">
+                            <?php endif; ?>
+                        </td>
+                        <td><?php echo $item['title'] ?></td>
+                        <td><?php echo $item['date'] ?></td>
+                        <td><?php echo $item['preview'] ?></td>
+                        <td class="align-center">
 
-                <a href="newspage.php" class="list-group-item list-group-item-action">
-                    <div class="d-flex w-100 justify-content-between">
-                        <h5 class="mb-1"><?php
-                            foreach ($result as $item) {
-                                $data[] = $item;
-                                echo $item['title'];
-                            }
-                            ?>
-                        </h5>
-                        <small><?php
-                            foreach ($result as $item) {
-                                $data[] = $item;
-                                echo $item['date'];
-                            }
-
-                            ?>
-                        </small>
-                    </div>
-                    <p class="mb-1 news-preview" text-overflow="20"><?php
-                        foreach ($result as $item) {
-                            $data[] = $item;
-                            echo $item['preview'];
-                        }
-                        ?>
-                    </p>
-                </a>
-
-            </div>
-            <div class="col-md-4">
-
-            </div>
-
-            <div class="col-md-4 ">
-
-
-            </div>
-            <!--///////////////////////////////////////////////////////////////////-->
-            <div class="col-md-4">
-
-            </div>
+                            <div class="btn-group" role="group" aria-label="Basic example">
+                                <a href="/admin/edit.php?id=<?php echo $item['id'] ?>" class="btn btn-success" id="butedit">edit</a>
+                                <a href="/front/newspage.php?id=<?php echo $item['id'] ?>" class="btn btn-primary" id="butedit">view</a>
+                                <a href="/admin/delete.php?id=<?php echo $item['id'] ?>" class="btn btn-danger" id="butdel">delete</a>
+                            </div>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+                </tbody>
+            </table>
         </div>
 
 

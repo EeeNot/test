@@ -1,5 +1,5 @@
 $('#butadd').click(function() {
-    document.location.href='../index.php';
+    document.location.href='admin/admin.php';
 });
 
 $('#butedit').click(function() {
